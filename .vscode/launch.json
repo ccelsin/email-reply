@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-EmailReplyApplication<email-reply>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.email.reply.EmailReplyApplication",
+            "projectName": "email-reply",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

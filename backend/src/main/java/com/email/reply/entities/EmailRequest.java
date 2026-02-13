@@ -1,0 +1,9 @@
+package com.email.reply.entities;
+
+import lombok.Data;
+
+@Data
+public class EmailRequest {
+    private String emailContent;
+    private String tone;
+}
