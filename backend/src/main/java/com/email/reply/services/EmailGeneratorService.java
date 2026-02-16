@@ -1,6 +1,5 @@
 package com.email.reply.services;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -39,7 +38,7 @@ public class EmailGeneratorService {
         );
 
         String response = webClient.post()
-            .uri(geminiApiUrl + "gemini-3-flash-preview:generateContent")
+            .uri(geminiApiUrl)
             .header("Content-Type", "application/json")
             .header("x-goog-api-key", geminiApiKey)
             .bodyValue(requestBody)
@@ -54,7 +53,7 @@ public class EmailGeneratorService {
         try{
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode rootNode = objectMapper.readTree(response);
-            return rootNode.path("candidates").get(0).path("content").path("parts").get(0).path("text").asText();
+            return rootNode.path("candidates").get(0).path("content").path("parts").get(0).path("text").asString();
         }catch(Exception e){
             e.printStackTrace();
             return "Error processing response" + e.getMessage();
